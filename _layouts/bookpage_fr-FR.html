@@ -1,0 +1,43 @@
+{% include html-start.html %}
+
+	{% include header-masthead_fr-FR.html %}
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>{{ page.title }}</h1>
+          {{ content }}
+        </section>
+
+        <aside id="sidebar">
+<!--          <a href="" class="button">
+            <small>Download book as</small>
+            PDF
+          </a>-->
+          <ol class="rectangle-list">
+          {% for weight in (1..100) %}
+            {% for p in site.pages %}
+              {% if p.weight > 0 %}
+              {% if p.weight == weight %}
+              {% if p.path contains 'fr-FR' %}
+                <li>
+                  <a {% if p.url == page.url %}class="active"{% endif %} href="{{ p.url }}">
+                    {{ p.title }}
+                  </a>
+                </li>
+              {% endif %}
+              {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+          </ol>
+          <p>Ce libre est de la culture libre, <a href="//github.com/fontforge/designwithfontforge.com/" target="_blank">hébergée sur GitHub</a>. Modifications, suggestions et correctifs sont les bienvenus.</p>
+          <p><a class"" href="https://github.com/fontforge/designwithfontforge.com/commits/gh-pages">Voir les changements récents</a></p>
+          <p><a class="editthispage" href="https://github.com/fontforge/designwithfontforge.com/blob/gh-pages{{ page.url | replace: '.html', '.md' }}" target="_blank">Éditer cette page</a> (<a href="https://github.com/fontforge/designwithfontforge.com">apprendre comment</a>)</p></p>
+        </aside>
+      </div>
+    </div>
+
+{% include footer_fr-FR.html %}
+
+{% include html-end.html %}
