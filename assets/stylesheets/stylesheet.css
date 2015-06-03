@@ -266,6 +266,10 @@ b, strong {
   margin-bottom: .6em;
   color: #272727;
   font-weight: 300;
+}
+
+#main-content p {
+  text-align: justify;
 } 
 
 #main-content h1:before {
